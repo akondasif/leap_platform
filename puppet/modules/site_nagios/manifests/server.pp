@@ -4,7 +4,7 @@ class site_nagios::server inherits nagios::base {
 # lint:endignore
 
   $nagios_hiera     = hiera('nagios')
-  $nagiosadmin_pw   = htpasswd_sha1($nagios_hiera['nagiosadmin_pw'])
+  $nagiosadmin_pw   = ht_crypt($nagios_hiera['nagiosadmin_pw'])
   $nagios_hosts     = $nagios_hiera['hosts']
   $nagios_contacts  = hiera('contacts')
   $environment      = $nagios_hiera['environments']
