@@ -1,6 +1,6 @@
 class check_mk::htpasswd (
   $password,
-  $username = 'omdadmin',
+  $username = undef, 
   $path = '/opt/omd/sites/monitoring/etc/htpasswd' ) {
 
   apache::htpasswd_user { $username:
